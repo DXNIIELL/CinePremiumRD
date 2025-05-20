@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series - CinePremium</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="series.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-film"></i>
+            <span>CinePremium</span>
+        </div>
+        <div class="nav-links">
+            <a href="./home.html">Inicio</a>
+            <a href="./peliculas.html">Películas</a>
+            <a href="./series.html" class="active">Series</a>
+            <a href="./milista.html">Mi Lista</a>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main>
+        <div class="series-container">
+            <h1>Series</h1>
+            
+            <!-- Filtros -->
+            <div class="filters">
+                <select id="genreFilter">
+                    <option value="">Todos los géneros</option>
+                    <option value="accion">Acción</option>
+                    <option value="drama">Drama</option>
+                    <option value="comedia">Comedia</option>
+                    <option value="scifi">Ciencia Ficción</option>
+                </select>
+                <select id="yearFilter">
+                    <option value="">Todos los años</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                </select>
+            </div>
+
+            <!-- Grid de Series -->
+            <div class="series-grid">
+                <!-- Serie 1 -->
+                <div class="serie-card" onclick="openModal('serie1')">
+                    <img src="https://image.tmdb.org/t/p/w185/cZdsqlIqhRbYNo8ttxb2ThC09Wa.jpg" alt="The Last of Us">
+                    <div class="serie-info">
+                        <h3>The Last of Us</h3>
+                        <p>Drama, Acción | 2023</p>
+                    </div>
+                </div>
+
+                <!-- Serie 2 -->
+                <div class="serie-card" onclick="openModal('serie2')">
+                    <img src="https://image.tmdb.org/t/p/w185/qcpC9lv6VLL4Zw45EveYELV5lYa.jpg" alt="House of the Dragon">
+                    <div class="serie-info">
+                        <h3>House of the Dragon</h3>
+                        <p>Fantasía, Drama | 2022</p>
+                    </div>
+                </div>
+
+                <!-- Serie 3 -->
+                <div class="serie-card" onclick="openModal('serie3')">
+                    <img src="https://image.tmdb.org/t/p/w185/9PFonBhy4cQy7Jz20NpMygczOkv.jpg" alt="Wednesday">
+                    <div class="serie-info">
+                        <h3>Wednesday</h3>
+                        <p>Fantasía, Misterio | 2022</p>
+                    </div>
+                </div>
+
+                <!-- Serie 4 -->
+                <div class="serie-card" onclick="openModal('serie4')">
+                    <img src="https://image.tmdb.org/t/p/w185/49WJfeN0moxb9IPfGn8AIqMGskD.jpg" alt="Stranger Things">
+                    <div class="serie-info">
+                        <h3>Stranger Things</h3>
+                        <p>Ciencia Ficción, Drama | 2022</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="serieModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+                <div class="modal-header">
+                    <img id="modalImage" src="" alt="">
+                    <div class="modal-info">
+                        <h2 id="modalTitle"></h2>
+                        <p id="modalDetails"></p>
+                        <p id="modalDescription"></p>
+                    </div>
+                </div>
+                <div class="episode-selector">
+                    <div class="selector-header">
+                        <select id="seasonSelect" onchange="updateEpisodes()">
+                            <option value="">Seleccionar Temporada</option>
+                        </select>
+                        <select id="episodeSelect">
+                            <option value="">Seleccionar Episodio</option>
+                        </select>
+                    </div>
+                    <button class="play-btn" onclick="playEpisode()">
+                        <i class="fas fa-play"></i> Reproducir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Datos de las series
+        const seriesData = {
+            'serie1': {
+                title: 'Adolescentes',
+                image: 'https://image.tmdb.org/t/p/w185/cZdsqlIqhRbYNo8ttxb2ThC09Wa.jpg',
+                details: 'Drama, Acción | 2023',
+                description: 'Veinte años después de que la civilización moderna fuera destruida, Joel es contratado para sacar de contrabando a Ellie, una niña de 14 años, fuera de una opresiva zona de cuarentena.',
+                seasons: [
+                    {
+                        number: 1,
+                        episodes: [
+                            {
+                                title: 'Episodio 1: Cuando estés perdido en la oscuridad',
+                                videoUrl: 'https://fastream.to/crj2c1r0d5bh?jwsource=cl'
+                            },
+                            {
+                                title: 'Episodio 2: Infectados',
+                                videoUrl: 'https://fastream.to/ccn9u9xqm6xu?jwsource=cl'
+                            },
+                            {
+                                title: 'Episodio 3: Mucho, mucho tiempo',
+                                videoUrl: 'https://fastream.to/t9u0bsv01qyh?jwsource=cl'
+                            },
+                            {
+                                title: 'Episodio 4: Por favor, agárrate de mi mano',
+                                videoUrl: 'https://fastream.to/ytj4tqfpxpd6?jwsource=cl'
+                            }
+                        ]
+                    }
+                ]
+            },
+            'serie2': {
+                title: 'House of the Dragon',
+                image: 'https://via.placeholder.com/300x450',
+                details: 'Fantasía, Drama | 2022',
+                description: 'La historia de la Casa Targaryen, 200 años antes de los eventos que tuvieron lugar en "Game of Thrones".',
+                seasons: [
+                    {
+                        number: 1,
+                        episodes: [
+                            {
+                                title: 'Episodio 1: Los herederos del dragón',
+                                videoUrl: 'https://fastream.to/t5xsvmo943pu?jwsource=cl'
+                            },
+                            {
+                                title: 'Episodio 2: El príncipe canalla',
+                                videoUrl: 'https://fastream.to/5lc7y12xjzog?jwsource=cl'
+                            },
+                            {
+                                title: 'Episodio 3: Segundo de su nombre',
+                                videoUrl: 'https://fastream.to/8vn8fbgxjlj5'
+                            },
+                            {
+                                title: 'Episodio 4: El rey del mar estrecho',
+                                videoUrl: 'https://fastream.to/ra6hkrcmbupt?jwsource=cl'
+                            }
+                        ]
+                    }
+                ]
+            },
+            'serie3': {
+                title: 'Wednesday',
+                image: 'https://via.placeholder.com/300x450',
+                details: 'Fantasía, Misterio | 2022',
+                description: 'Wednesday Addams es enviada al instituto Nevermore, donde intenta dominar sus poderes psíquicos, resolver un misterio que involucró a sus padres y adaptarse a sus nuevas relaciones.',
+                seasons: [
+                    {
+                        number: 1,
+                        episodes: [
+                            {
+                                title: 'Episodio 1: El día de Wednesday',
+                                videoUrl: 'https://fastream.to/njnb04nb2vie?jwsource=cl'
+                            },
+                            {
+                                title: 'Episodio 2: Pena y dolor',
+                                videoUrl: 'https://fastream.to/mngk7cyeqe84?jwsource=cl'
+                            },
+                            {
+                                title: 'Episodio 3: Amigo o enemigo',
+                                videoUrl: 'https://fastream.to/286outwlwd3j?jwsource=cl'
+                            },
+                            {
+                                title: 'Episodio 4: ¿Qué pasó el miércoles?',
+                                videoUrl: 'https://fastream.to/fmljyg7dq5q1'
+                            }
+                        ]
+                    }
+                ]
+            },
+            'serie4': {
+                title: 'Stranger Things',
+                image: 'https://via.placeholder.com/300x450',
+                details: 'Ciencia Ficción, Drama | 2022',
+                description: 'Cuando un niño desaparece, un pequeño pueblo descubre un misterio que involucra experimentos secretos, fuerzas sobrenaturales aterradoras y una niña muy extraña.',
+                seasons: [
+                    {
+                        number: 1,
+                        episodes: [
+                            {
+                                title: 'Episodio 1: La desaparición de Will Byers',
+                                videoUrl: 'https://fastream.to/t5xsvmo943pu?jwsource=cl'
+                            },
+                            {
+                                title: 'Episodio 2: La chica rara de la calle Maple',
+                                videoUrl: 'https://fastream.to/5lc7y12xjzog?jwsource=cl'
+                            },
+                            {
+                                title: 'Episodio 3: Luces navideñas',
+                                videoUrl: 'https://fastream.to/8vn8fbgxjlj5'
+                            },
+                            {
+                                title: 'Episodio 4: El cuerpo',
+                                videoUrl: 'https://fastream.to/ra6hkrcmbupt?jwsource=cl'
+                            }
+                        ]
+                    },
+                    {
+                        number: 2,
+                        episodes: [
+                            {
+                                title: 'Episodio 1: MADMAX',
+                                videoUrl: 'https://fastream.to/njnb04nb2vie?jwsource=cl'
+                            },
+                            {
+                                title: 'Episodio 2: Truco o trato, bicho raro',
+                                videoUrl: 'https://fastream.to/mngk7cyeqe84?jwsource=cl'
+                            },
+                            {
+                                title: 'Episodio 3: El renacuajo',
+                                videoUrl: 'https://fastream.to/286outwlwd3j?jwsource=cl'
+                            },
+                            {
+                                title: 'Episodio 4: Will el sabio',
+                                videoUrl: 'https://fastream.to/fmljyg7dq5q1'
+                            }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        // Funciones para el modal
+        function openModal(serieId) {
+            const serie = seriesData[serieId];
+            const card = document.querySelector(`[onclick="openModal('${serieId}')"]`);
+            const cardImage = card.querySelector('img').src;
+            
+            document.getElementById('modalTitle').textContent = serie.title;
+            document.getElementById('modalImage').src = cardImage;
+            document.getElementById('modalDetails').textContent = serie.details;
+            document.getElementById('modalDescription').textContent = serie.description;
+            
+            // Actualizar selector de temporadas
+            const seasonSelect = document.getElementById('seasonSelect');
+            seasonSelect.innerHTML = '<option value="">Seleccionar Temporada</option>';
+            serie.seasons.forEach(season => {
+                seasonSelect.innerHTML += `<option value="${season.number}">Temporada ${season.number}</option>`;
+            });
+            
+            // Limpiar el selector de episodios
+            document.getElementById('episodeSelect').innerHTML = '<option value="">Seleccionar Episodio</option>';
+            
+            document.getElementById('serieModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('serieModal').style.display = 'none';
+        }
+
+        function updateEpisodes() {
+            const seasonSelect = document.getElementById('seasonSelect');
+            const episodeSelect = document.getElementById('episodeSelect');
+            const modalTitle = document.getElementById('modalTitle').textContent;
+            const selectedSerie = Object.values(seriesData).find(serie => serie.title === modalTitle);
+            
+            if (seasonSelect.value) {
+                const season = selectedSerie.seasons[seasonSelect.value - 1];
+                episodeSelect.innerHTML = '<option value="">Seleccionar Episodio</option>';
+                season.episodes.forEach((episode, index) => {
+                    episodeSelect.innerHTML += `<option value="${index + 1}">${episode.title}</option>`;
+                });
+            } else {
+                episodeSelect.innerHTML = '<option value="">Seleccionar Episodio</option>';
+            }
+        }
+
+        function playEpisode() {
+            const seasonSelect = document.getElementById('seasonSelect');
+            const episodeSelect = document.getElementById('episodeSelect');
+            const modalTitle = document.getElementById('modalTitle').textContent;
+            const selectedSerie = Object.values(seriesData).find(serie => serie.title === modalTitle);
+            
+            if (!seasonSelect.value || !episodeSelect.value) {
+                alert('Por favor, selecciona una temporada y un episodio');
+                return;
+            }
+            
+            const season = selectedSerie.seasons[seasonSelect.value - 1];
+            const episode = season.episodes[episodeSelect.value - 1];
+            
+            // Crear un objeto temporal con la estructura que espera el reproductor
+            const episodeData = {
+                title: selectedSerie.title + ' - ' + episode.title,
+                year: selectedSerie.details.split('|')[1].trim(),
+                genre: selectedSerie.details.split('|')[0].trim(),
+                duration: '45 min',
+                description: selectedSerie.description,
+                videoUrl: episode.videoUrl
+            };
+            
+            // Guardar temporalmente en localStorage para que el reproductor pueda accederlo
+            localStorage.setItem('currentEpisode', JSON.stringify(episodeData));
+            
+            // Redirigir al reproductor
+            window.location.href = 'reproductor.html?type=serie';
+        }
+
+        // Cerrar el modal cuando se hace clic fuera de él
+        window.onclick = function(event) {
+            const modal = document.getElementById('serieModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html> 

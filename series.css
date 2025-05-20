@@ -1,0 +1,388 @@
+/* Variables de color */
+:root {
+    --primary-color: #e50914;
+    --primary-hover: #f40612;
+    --background-dark: #141414;
+    --background-light: #1f1f1f;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --card-hover: rgba(255, 255, 255, 0.1);
+}
+
+/* Estilos generales */
+body {
+    background: var(--background-dark);
+    color: var(--text-primary);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Contenedor principal de series */
+.series-container {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.series-container h1 {
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    position: relative;
+    display: inline-block;
+}
+
+.series-container h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* Filtros */
+.filters {
+    margin-bottom: 2.5rem;
+    display: flex;
+    gap: 1rem;
+    background: var(--background-light);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filters select {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+.filters select:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.filters select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.2);
+}
+
+/* Grid de series */
+.series-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+/* Tarjeta de serie */
+.serie-card {
+    background: var(--background-light);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.serie-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.serie-card img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    display: block;
+    transition: all 0.4s ease;
+}
+
+.serie-card:hover img {
+    transform: scale(1.05);
+}
+
+.serie-info {
+    padding: 1.25rem;
+    background: linear-gradient(to top, var(--background-light) 0%, rgba(31, 31, 31, 0.9) 100%);
+}
+
+.serie-info h3 {
+    color: var(--text-primary);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.serie-info p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    backdrop-filter: blur(8px);
+}
+
+.modal-content {
+    background: var(--background-light);
+    border-radius: 16px;
+    max-width: 1000px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    animation: modalFadeIn 0.4s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-modal {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    color: var(--text-primary);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(90deg);
+}
+
+.modal-header {
+    display: flex;
+    gap: 2.5rem;
+    padding: 2.5rem;
+    background: linear-gradient(to bottom, rgba(31, 31, 31, 0.8) 0%, var(--background-light) 100%);
+}
+
+.modal-header img {
+    width: 250px;
+    height: 375px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal-info {
+    flex: 1;
+    padding-top: 1rem;
+}
+
+.modal-info h2 {
+    color: var(--text-primary);
+    margin: 0 0 1rem 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.modal-info p {
+    color: var(--text-secondary);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+/* Selector de episodios */
+.episode-selector {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.selector-header {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.selector-header select {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+}
+
+.selector-header select:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.selector-header select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.2);
+}
+
+.play-btn {
+    width: 100%;
+    padding: 1.25rem;
+    background: var(--primary-color);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.play-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3);
+}
+
+.play-btn i {
+    font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .modal-header {
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .modal-header img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .modal-info h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .series-container {
+        padding: 1rem;
+    }
+
+    .filters {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .selector-header {
+        flex-direction: column;
+    }
+
+    .series-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 1rem;
+    }
+
+    .serie-card img {
+        height: 240px;
+    }
+
+    .serie-info h3 {
+        font-size: 1rem;
+    }
+
+    .modal {
+        padding: 1rem;
+    }
+
+    .play-btn {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+}
+
+/* Efectos de hover mejorados */
+.serie-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.serie-card:hover::after {
+    opacity: 1;
+}
+
+/* Animación de carga */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+} 

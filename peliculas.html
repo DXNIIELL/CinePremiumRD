@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Películas - CinePremium</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-film"></i>
+            <span>CinePremium</span>
+        </div>
+        <div class="nav-links">
+            <a href="./home.html">Inicio</a>
+            <a href="./peliculas.html" class="active">Películas</a>
+            <a href="./series.html">Series</a>
+            <a href="./milista.html">Mi Lista</a>
+        </div>
+        <div class="nav-buttons">
+            <button class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="peliculas-container">
+        <h1>Catálogo de Películas</h1>
+        
+        <!-- Filtros -->
+        <div class="filtros">
+            <select class="filtro-genero">
+                <option value="">Todos los géneros</option>
+                <option value="accion">Acción</option>
+                <option value="drama">Drama</option>
+                <option value="comedia">Comedia</option>
+                <option value="terror">Terror</option>
+                <option value="ciencia-ficcion">Ciencia Ficción</option>
+            </select>
+            <select class="filtro-año">
+                <option value="">Todos los años</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+            </select>
+        </div>
+
+        <!-- Grid de Películas -->
+        <div class="movie-grid">
+            <div class="movie-card">
+                <img src="https://th.bing.com/th/id/OIP.ZGjmdtwoVdA2qcY2Qo7sOgHaLH?rs=1&pid=ImgDetMain" alt="Oppenheimer">
+                <div class="movie-info">
+                    <h3>Cuestion de tiempo</h3>
+                    <div class="movie-meta">
+                        <span>2023</span>
+                        <span>Drama</span>
+                        <span>180 min</span>
+                    </div>
+                    <a href="reproductor.html?movie=oppenheimer" class="play-button">
+                        <i class="fas fa-play"></i>
+                        Reproducir
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-card">
+                <img src="https://image.tmdb.org/t/p/w185/jkOgeASTlWwyKLBNblHVwWmAKhD.jpg" alt="Conclave pelicula 2024">
+                <div class="movie-info">
+                    <h3>Conclave</h3>
+                    <div class="movie-meta">
+                        <span>2024</span>
+                        <span>Thriller</span>
+                        <span>144 min</span>
+                    </div>
+                    <a href="reproductor.html?movie=flash" class="play-button">
+                        <i class="fas fa-play"></i>
+                        Reproducir
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-card">
+                <img src="https://image.tmdb.org/t/p/w185/xVwP4GCbEfO66JSSyonnAhU3Fad.jpg" alt="Misión Imposible">
+                <div class="movie-info">
+                    <h3>apitán América: Brave New World</h3>
+                    <div class="movie-meta">
+                        <span>2025</span>
+                        <span>Acción, Ciencia ficción, Suspense</span>
+                        <span>163 min</span>
+                    </div>
+                    <a href="reproductor.html?movie=mision-imposible" class="play-button">
+                        <i class="fas fa-play"></i>
+                        Reproducir
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-card">
+                <img src="https://www.ecartelera.com/carteles/18700/18711/003_p.webp" alt="Blanca Nieves 2025">
+                <div class="movie-info">
+                    <h3>Blanca Nieves</h3>
+                    <div class="movie-meta">
+                        <span>2025</span>
+                        <span>LifeAction</span>
+                        <span>114 min</span>
+                    </div>
+                    <a href="reproductor.html?movie=barbie" class="play-button">
+                        <i class="fas fa-play"></i>
+                        Reproducir
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-card">
+                <img src="https://static.wikia.nocookie.net/doblaje/images/5/5b/PlanktonTheMovie.jpg/revision/latest?cb=20250310011019&path-prefix=es" alt="Scream 6">
+                <div class="movie-info">
+                    <h3>Planktom</h3>
+                    <div class="movie-meta">
+                        <span>2023</span>
+                        <span>Terror</span>
+                        <span>107 min</span>
+                    </div>
+                    <a href="reproductor.html?movie=scream6" class="play-button">
+                        <i class="fas fa-play"></i>
+                        Reproducir
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-card">
+                <img src="https://smartpelis.tv/wp-content/uploads/2022/11/xziurNdvxWZkgonZ5ZaGRB9YdLt-193x288.jpg" alt="The Creator">
+                <div class="movie-info">
+                    <h3>500 Dias Juntos</h3>
+                    <div class="movie-meta">
+                        <span>2023</span>
+                        <span>Ciencia ficción</span>
+                        <span>96 min</span>
+                    </div>
+                    <a href="reproductor.html?movie=the-creator" class="play-button">
+                        <i class="fas fa-play"></i>
+                        Reproducir
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-card">
+                <img src="https://image.tmdb.org/t/p/w185/qqXTerrQYwg9pIMhb1GFbxa3WUz.jpg" alt="Spider-Man">
+                <div class="movie-info">
+                    <h3>Spider-Man: A través del Spider-Verso</h3>
+                    <div class="movie-meta">
+                        <span>2023</span>
+                        <span>Animación</span>
+                        <span>140 min</span>
+                    </div>
+                    <a href="reproductor.html?movie=spiderman-spiderverse" class="play-button">
+                        <i class="fas fa-play"></i>
+                        Reproducir
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-card">
+                <img src="https://image.tmdb.org/t/p/w185/dvvfHkEinSUWUPtJeWvxOx5hozm.jpg" alt="Scream 6">
+                <div class="movie-info">
+                    <h3>Elementos</h3>
+                    <div class="movie-meta">
+                        <span>2025</span>
+                        <span>Terror | Scifi</span>
+                        <span>96 min</span>
+                    </div>
+                    <a href="reproductor.html?movie=elementos" class="play-button">
+                        <i class="fas fa-play"></i>
+                        Reproducir
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paginación -->
+        <div class="pagination">
+            <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <i class="fas fa-film"></i>
+                <span>CinePremium</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">Acerca de</a>
+                <a href="#">Contacto</a>
+                <a href="#">Ayuda</a>
+                <a href="#">Términos</a>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CinePremium. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

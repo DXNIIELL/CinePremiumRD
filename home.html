@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CinePremium</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-film"></i>
+            <span>CinePremium</span>
+        </div>
+        <div class="nav-links">
+            <a href="./home.html" class="active">Inicio</a>
+            <a href="./peliculas.html">Películas</a>
+            <a href="./series.html">Series</a>
+            <a href="./milista.html">Mi Lista</a>
+        </div>
+        <div class="nav-buttons">
+            <button class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main>
+        <!-- Sección Inicio -->
+        <section id="inicio" class="section active">
+            <!-- Hero Section -->
+            <header class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg') center/cover;">
+                <div class="hero-content">
+                    <h1>Oppenheimer</h1>
+                    <p>Te amo muchoooooooooo rociooo</p>
+                    <a href="reproductor.html?movie=oppenheimer" class="cta-button">
+                        Ver ahora
+                        <i class="fas fa-play"></i>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Películas Destacadas -->
+            <section class="featured">
+                <h2>Películas Destacadas</h2>
+                <div class="movie-grid">
+                    <div class="movie-card">
+                        <img src="https://th.bing.com/th/id/OIP.ZGjmdtwoVdA2qcY2Qo7sOgHaLH?rs=1&pid=ImgDetMain" alt="Oppenheimer">
+                        <div class="movie-info">
+                            <h3>Cuestion de tiempo</h3>
+                            <div class="movie-meta">
+                                <span>2023</span>
+                                <span>Drama</span>
+                                <span>180 min</span>
+                            </div>
+                            <a href="reproductor.html?movie=oppenheimer" class="play-button">
+                                <i class="fas fa-play"></i>
+                                Reproducir
+                            </a>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <img src="https://image.tmdb.org/t/p/w185/jkOgeASTlWwyKLBNblHVwWmAKhD.jpg" alt="The Flash">
+                        <div class="movie-info">
+                            <h3>Conclave</h3>
+                            <div class="movie-meta">
+                                <span>2024</span>
+                                <span>Thriller</span>
+                                <span>144 min</span>
+                            </div>
+                            <a href="reproductor.html?movie=flash" class="play-button">
+                                <i class="fas fa-play"></i>
+                                Reproducir
+                            </a>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <img src="https://image.tmdb.org/t/p/w500/NNxYkU70HPurnNCSiCjYAmacwm.jpg" alt="Misión Imposible">
+                        <div class="movie-info">
+                            <h3>Misión Imposible: Sentencia Mortal</h3>
+                            <div class="movie-meta">
+                                <span>2023</span>
+                                <span>Acción</span>
+                                <span>163 min</span>
+                            </div>
+                            <a href="reproductor.html?movie=mision-imposible" class="play-button">
+                                <i class="fas fa-play"></i>
+                                Reproducir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Categorías -->
+            <section class="categories">
+                <h2>Categorías</h2>
+                <div class="category-grid">
+                    <a href="#" class="category-card" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://image.tmdb.org/t/p/w500/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg') center/cover;">
+                        <i class="fas fa-fire"></i>
+                        <h3>Acción</h3>
+                    </a>
+                    <a href="#" class="category-card" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://image.tmdb.org/t/p/w500/qn3wqc7Zy3EJZKHjYhNveYJhzrn.jpg') center/cover;">
+                        <i class="fas fa-heart"></i>
+                        <h3>Romance</h3>
+                    </a>
+                    <a href="#" class="category-card" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://image.tmdb.org/t/p/w500/9VdgIj9R9Z9dfDoO76v57V6FF6y.jpg') center/cover;">
+                        <i class="fas fa-laugh"></i>
+                        <h3>Comedia</h3>
+                    </a>
+                    <a href="#" class="category-card" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://image.tmdb.org/t/p/w500/aePBN8ffLCHoUXp8lkA5P29CXdx.jpg') center/cover;">
+                        <i class="fas fa-ghost"></i>
+                        <h3>Terror</h3>
+                    </a>
+                    <a href="#" class="category-card" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://image.tmdb.org/t/p/w500/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg') center/cover;">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Sci-Fi</h3>
+                    </a>
+                    <a href="#" class="category-card" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg') center/cover;">
+                        <i class="fas fa-theater-masks"></i>
+                        <h3>Drama</h3>
+                    </a>
+                </div>
+            </section>
+        </section>
+
+        <!-- Sección Series -->
+        <section id="series" class="section">
+            <h2>Series Destacadas</h2>
+            <div class="movie-grid">
+                <div class="movie-card">
+                    <img src="https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg" alt="Breaking Bad">
+                    <div class="movie-info">
+                        <h3>Breaking Bad</h3>
+                        <div class="movie-meta">
+                            <span>2008-2013</span>
+                            <span>Drama</span>
+                            <span>5 temporadas</span>
+                        </div>
+                        <a href="reproductor.html?series=breaking-bad" class="play-button">
+                            <i class="fas fa-play"></i>
+                            Reproducir
+                        </a>
+                    </div>
+                </div>
+                <!-- Más series aquí -->
+            </div>
+        </section>
+
+        <!-- Sección Mi Lista -->
+        <section id="mi-lista" class="section">
+            <h2>Mi Lista de Reproducción</h2>
+            <div class="movie-grid">
+                <div class="movie-card">
+                    <img src="https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg" alt="Contenido guardado">
+                    <div class="movie-info">
+                        <h3>Contenido Guardado</h3>
+                        <div class="movie-meta">
+                            <span>Guardado recientemente</span>
+                        </div>
+                        <a href="reproductor.html" class="play-button">
+                            <i class="fas fa-play"></i>
+                            Reproducir
+                        </a>
+                    </div>
+                </div>
+                <!-- Más contenido guardado aquí -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <i class="fas fa-film"></i>
+                <span>CinePremium</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">Acerca de</a>
+                <a href="#">Contacto</a>
+                <a href="#">Ayuda</a>
+                <a href="#">Términos</a>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CinePremium. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
